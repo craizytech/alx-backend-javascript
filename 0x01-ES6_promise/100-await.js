@@ -9,6 +9,7 @@ export default async function asyncUploadUser() {
     final.photo = photo;
   } catch (error) {
     final.photo = null;
+    throw new Error();
   }
 
   try {
@@ -16,6 +17,7 @@ export default async function asyncUploadUser() {
     final.user = user;
   } catch (error) {
     final.user = null;
+    throw new Error();
   }
 
   return final;
