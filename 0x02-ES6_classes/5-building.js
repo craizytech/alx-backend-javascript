@@ -2,8 +2,9 @@ export default class Building {
   constructor(sqft) {
     this.sqft = sqft;
 
-    if (this.evacuationWarningMessage === Building.prototype.methodToOverride) {
-      throw new Error('Class extending Building must override evacuationWarningMessage')
+    // eslint-disable-next-line max-len
+    if (this.constructor !== Building && this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
   }
 
@@ -20,6 +21,7 @@ export default class Building {
     this._sqft = value;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   evacuationWarningMessage() {
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
